@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="553dp"
+        android:layout_height="217dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangle"/>
+
+        <TextView
+            android:id="@+id/helloTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_600"
+            android:text="How do you wanna pay?"
+            android:textColor="#000000"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="95dp">
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/money_bill_wave"/>
+
+            <View
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/qr_scan"/>
+
+
+        </LinearLayout>
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+
+            <RadioButton
+                android:id="@+id/cashButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:buttonTint="@color/radio_button_selector"
+                android:checked="false"
+                android:fontFamily="@font/poppins_600"
+                android:layoutDirection="rtl"
+                android:text="Cash"
+                android:textColor="#561310"
+                android:textSize="23sp" />
+
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@android:color/darker_gray" />
+
+
+            <RadioButton
+                android:id="@+id/scanButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Scan QR"
+                android:textColor="#561310"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:layoutDirection="rtl"
+                android:fontFamily="@font/poppins_600"
+                android:textSize="23sp"
+                android:buttonTint="@color/radio_button_selector" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

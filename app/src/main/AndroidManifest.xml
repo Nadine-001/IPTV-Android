@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application xmlns:tools="http://schemas.android.com/tools"
+        android:allowBackup="true"
+        android:banner="@mipmap/ic_launcher"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TVApp"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:theme">
+        <activity
+            android:name=".Payment"
+            android:exported="false" />
+        <activity
+            android:name=".ChangePaymentMethod"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".PendingTransaksi"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".ScanQRAgain"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".ListChannelTV"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".TV"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" /> <!-- <activity -->
+        <!-- android:name=".ChannelTV" -->
+        <!-- android:exported="false" -->
+        <!-- android:theme="@style/Theme.AppCompat" /> -->
+        <activity
+            android:name=".OrderFoodNew"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".ScanQR"
+            android:exported="false"
+            android:theme="@style/DialogTheme" />
+        <activity
+            android:name=".PaymentMethod"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".RoomServiceReq"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".MainMenu"
+            android:exported="false" />
+        <activity
+            android:name=".OrderFoodPayment"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" /> <!-- <activity -->
+        <!-- android:name=".OrderFood" -->
+        <!-- android:exported="false" -->
+        <!-- android:theme="@style/Theme.AppCompat" /> -->
+        <activity
+            android:name=".HotelFacility"
+            android:exported="false" />
+        <activity
+            android:name=".HotelInfoFacility"
+            android:exported="false" />
+        <activity
+            android:name=".HotelInfoLocation"
+            android:exported="false" />
+        <activity
+            android:name=".HotelInfoAbout"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".RoomServiceDetail"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".RoomServiceDescription"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".HotelInfo"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".SplashScreen"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LEANBACK_LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_api_key" />
+    </application>
+
+</manifest>

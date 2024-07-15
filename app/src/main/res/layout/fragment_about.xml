@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AboutFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <View
+            android:layout_width="860dp"
+            android:layout_height="340dp"
+            android:background="@drawable/rectangle"
+            />
+
+        <TextView
+            android:id="@+id/helloTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_600"
+            android:text="Hotel Name"
+            android:textColor="#561310"
+            android:textSize="20sp" />
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/helloTextView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"
+            android:numStars="5"
+            android:stepSize="1"
+            style="?android:attr/ratingBarStyleSmall"
+            android:progressTint="@android:color/holo_orange_light"
+            android:secondaryProgressTint="@android:color/darker_gray"
+            />
+
+
+        <TextView
+            android:id="@+id/welcomeTextView"
+            android:layout_width="430dp"
+            android:layout_height="wrap_content"
+            android:text="Set in the Times Square district, this striking high-rise hotel is less than a mile from Central Park and 2 miles from The Metropolitan Museum of Art. The upscale rooms feature city views and bathrooms with rainfall showerheads, plus Wi-Fi, flat-screen TVs, iPod docks and Keurig coffeemakers. Upgraded rooms add sitting areas with pull-out sofas. "
+            android:fontFamily="@font/poppins_600"
+            android:layout_below="@+id/helloTextView"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="400dp"
+            android:textColor="#561310"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/cekin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check-in time: 01:00 PM"
+            android:fontFamily="@font/poppins_700"
+            android:layout_below="@+id/helloTextView"
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="400dp"
+            android:textColor="#561310"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/cekout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check-out time: 12:00 PM"
+            android:fontFamily="@font/poppins_700"
+            android:layout_below="@+id/helloTextView"
+            android:layout_marginTop="220dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="400dp"
+            android:textColor="#561310"
+            android:textSize="15sp"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="470dp"
+            app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:id="@+id/wifi"
+                android:layout_width="639dp"
+                android:layout_height="340dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hotel2" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>

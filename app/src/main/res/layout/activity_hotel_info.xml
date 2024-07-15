@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2"
+    tools:context=".HotelInfo">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="513dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".67" />
+
+
+
+    <!--    <com.google.android.material.tabs.TabLayout-->
+<!--        android:id="@+id/tabLayout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:tabMode="fixed"-->
+<!--        app:tabGravity="fill"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
+<!--    <androidx.viewpager2.widget.ViewPager2-->
+<!--        android:id="@+id/viewPager"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/tabLayout"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tabLayout"/>-->
+
+    <com.google.android.material.tabs.TabLayout
+        app:tabIndicatorGravity="bottom"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="50dp"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicatorHeight="2dp"
+        app:tabIndicatorColor="@color/tab"
+        app:tabMode="fixed"
+        android:id="@+id/tabLayout"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        />
+
+    <TextView
+        android:id="@+id/text_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_600"
+        android:text="Day"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintRight_toLeftOf="@id/guideline_vertical4"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal1" />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_marginRight="10dp"
+        android:textAlignment="viewStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_600"
+        android:text="Date"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintRight_toLeftOf="@id/guideline_vertical4"
+        app:layout_constraintTop_toBottomOf="@id/text_day" />
+
+    <TextClock
+        android:id="@+id/text_time"
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:fontFamily="@font/poppins_600"
+        android:textSize="70sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal1"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vertical4"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

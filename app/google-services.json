@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "919319093535",
+    "project_id": "mas-iptv",
+    "storage_bucket": "mas-iptv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919319093535:android:b75f78b40ec63c1876102a",
+        "android_client_info": {
+          "package_name": "com.example.tvapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvV3PPh1TY-i5m1pltJmzHB-v8yJcyCRk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="513dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".26" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".17" />
+    
+    <TextView
+        android:id="@+id/text_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day"
+        android:fontFamily="@font/poppins_600"
+        android:textSize="25sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal1"
+        app:layout_constraintRight_toLeftOf="@id/guideline_vertical3"
+        />
+    <TextView
+        android:layout_marginRight="10dp"
+
+        android:id="@+id/text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:fontFamily="@font/poppins_600"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/text_day"
+        app:layout_constraintRight_toLeftOf="@id/guideline_vertical3"
+    />
+
+    <LinearLayout
+        android:id="@+id/noroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vertical3"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal3">
+
+        <!-- Room Number TextView -->
+        <TextView
+            android:id="@+id/room_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_600"
+            android:text="Room Type"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp" />
+
+        <!-- Day TextView -->
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/room_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_600"
+            android:text="NO"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+
+    <!-- Divider -->
+<!--    <View-->
+<!--        android:id="@+id/divider"-->
+<!--        android:layout_width="3dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:background="@android:color/white"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/noroom"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/noroom" />-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/cuaca"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/divider"-->
+<!--        app:layout_constraintTop_toTopOf="@id/guideline_horizontal3">-->
+
+<!--        &lt;!&ndash; Room Number TextView &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/weather"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/poppins_600"-->
+<!--            android:text="Cloudy"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="13sp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/weatherlogo"-->
+<!--            android:layout_width="65dp"-->
+<!--            android:layout_height="52dp"-->
+<!--            android:src="@drawable/baseline_cloud_24"-->
+<!--            android:layout_centerHorizontal="true" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    <View-->
+<!--        android:id="@+id/divider2"-->
+<!--        android:layout_width="3dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:background="@android:color/white"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/cuaca"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/noroom" />-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/loc"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/divider2"-->
+<!--        app:layout_constraintTop_toTopOf="@id/guideline_horizontal3">-->
+
+<!--        &lt;!&ndash; Room Number TextView &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/location"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/poppins_600"-->
+<!--            android:text="Jakarta"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="13sp" />-->
+
+<!--        <TextView-->
+<!--            android:textAlignment="center"-->
+<!--            android:id="@+id/deg"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/poppins_600"-->
+<!--            android:text="28"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="30sp" />-->
+
+<!--    </LinearLayout>-->
+
+
+
+    <TextClock
+        android:id="@+id/text_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:fontFamily="@font/poppins_600"
+        android:textSize="70sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal1"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vertical3"
+        />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:src="@drawable/logoo"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal1"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vertical1"
+        />
+    <TextView
+        android:id="@+id/text_hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello,"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_600"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal1"
+        app:layout_constraintLeft_toRightOf="@id/logo"
+        android:layout_marginLeft="30dp"
+
+        />
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ms. Litha"
+        android:fontFamily="@font/poppins_600"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/text_hello"
+        app:layout_constraintLeft_toRightOf="@id/logo"
+        android:layout_marginLeft="30dp"
+
+        />
+    <RelativeLayout
+        android:layout_width="212dp"
+        android:layout_height="196dp"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal3"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vertical1">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/wifi_background_shadow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan WiFi"
+            android:fontFamily="@font/poppins_600"
+            android:textSize="20sp"
+            android:textColor="#561310"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            />
+
+        <ImageView
+            android:id="@+id/wifi"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/wifi"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            />
+
+    </RelativeLayout>
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="81dp"-->
+<!--        android:background="@drawable/bg_splashscreen"-->
+<!--        android:layout_below="@+id/welcomeTextView"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        >-->
+<!--        <Button-->
+<!--            android:id="@+id/welcomeButton"-->
+<!--            android:layout_width="130dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:fontFamily="@font/poppins_600"-->
+<!--            android:background="@drawable/button_background"-->
+<!--            android:radius="10dp"-->
+<!--            android:text="Home"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="#561310" />-->
+<!--    </RelativeLayout>-->
+
+    <LinearLayout
+        android:id="@+id/menuContainer"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_splashscreen"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <RelativeLayout
+            android:id="@+id/channelButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconChannelTV"
+                android:layout_width="65dp"
+                android:layout_height="52dp"
+                android:src="@drawable/screen"
+                android:layout_marginTop="8dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/textChannelTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Channel TV"
+                android:fontFamily="@font/poppins_600"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:layout_below="@id/iconChannelTV"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/orderButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconOrderFood"
+                android:layout_width="65dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/room_service"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Food"
+                android:fontFamily="@font/poppins_600"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:layout_below="@id/iconOrderFood"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/roomButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconService"
+                android:layout_width="65dp"
+                android:layout_marginTop="8dp"
+                android:layout_height="52dp"
+                android:src="@drawable/user_headset"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Room Service"
+                android:fontFamily="@font/poppins_600"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:layout_below="@id/iconService"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/musicButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconMusic"
+                android:layout_width="65dp"
+                android:layout_marginTop="8dp"
+                android:layout_height="52dp"
+                android:src="@drawable/music_alt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Music"
+                android:fontFamily="@font/poppins_600"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:layout_below="@id/iconMusic"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/infoButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconhotel"
+                android:layout_marginTop="8dp"
+                android:layout_width="65dp"
+                android:layout_height="52dp"
+                android:src="@drawable/hotel"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hotel Info"
+                android:fontFamily="@font/poppins_600"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:layout_below="@id/iconhotel"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/youtubeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconYouTube"
+                android:layout_marginTop="8dp"
+                android:layout_width="65dp"
+                android:layout_height="52dp"
+                android:src="@drawable/youtube"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Youtube"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/poppins_600"
+                android:textSize="18sp"
+                android:layout_below="@id/iconYouTube"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/netflixButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconNetflix"
+                android:layout_width="80dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/netflix_n"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="Netflix"
+                android:fontFamily="@font/poppins_600"
+                android:textSize="18sp"
+                android:layout_below="@id/iconNetflix"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

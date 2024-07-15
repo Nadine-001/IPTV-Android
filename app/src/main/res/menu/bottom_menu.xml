@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/channel"
+        android:title="Channel TV"
+        android:icon="@drawable/screen"
+        />
+    <item
+        android:id="@+id/order_food"
+        android:title="Order Food"
+        android:icon="@drawable/room_service"
+        />
+    <item
+        android:id="@+id/room_service"
+        android:title="Room Service"
+        android:icon="@drawable/user_headset"
+        />
+    <item
+        android:id="@+id/music"
+        android:title="Music"
+        android:icon="@drawable/music_alt"
+        />
+    <item
+        android:id="@+id/hotel_info"
+        android:title="Hotel Info"
+        android:icon="@drawable/hotel"
+        />
+    <item
+        android:id="@+id/youtube"
+        android:title="Youtube"
+        android:icon="@drawable/youtube"
+        />
+    <item
+        android:id="@+id/netflix"
+        android:title="Netflix"
+        android:icon="@drawable/netflix"
+        />
+</menu>
