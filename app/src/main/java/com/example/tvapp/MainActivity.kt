@@ -92,12 +92,20 @@ class MainActivity : FragmentActivity() {
         netflixButton.setOnClickListener {
             openNetflix()
         }
+
+        SocketHandler.setSocket()
+        SocketHandler.establishConnection(this)
     }
 
     override fun onStart() {
         super.onStart()
         getDataFromApi()
         getWifi()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        SocketHandler.closeConnection()
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

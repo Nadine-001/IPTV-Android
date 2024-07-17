@@ -1,5 +1,6 @@
 package com.example.tvapp
 
+import SocketHandler.mSocket
 import android.content.Context
 import android.content.Intent
 import android.net.wifi.WifiManager
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tvapp.retrofit.ApiService
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,7 +44,6 @@ class RoomServiceReq : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_room_service_req)
         supportActionBar?.hide()
-
 
 
 
@@ -97,6 +98,28 @@ class RoomServiceReq : AppCompatActivity(){
 
 
     }
+
+    fun setupSocketListeners() {
+        mSocket.on("deliverNotif") { args ->
+            if (args.isNotEmpty()) {
+                val data = args[0] as JSONObject
+                Log.i("Socket", "Received data: $data")
+
+                // Parse the data object as needed
+                val counter = data.getInt("counter")
+                val message = data.getString("message")
+
+                Log.i("Counter", counter.toString())
+                Log.i("Message", message)
+
+                // Run code on the UI thread if necessary
+                // Example: Displaying a toast message
+                // Note: Replace 'yourActivity' with the appropriate context or activity reference
+//                yourActivity.runOnUiThread {
+//                    Toast.makeText(yourActivity, "Counter: $counter, Message: $message", Toast.LENGTH_SHORT).show()
+//                }
+            }
+        }}
 
     private var isCartZoomed = false
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
@@ -470,13 +493,24 @@ class RoomServiceReq : AppCompatActivity(){
         // Mengambil MAC Address
         val macAddress = getMacAddress()
         SocketHandler.setSocket()
-        SocketHandler.establishConnection()
+        SocketHandler.establishConnection(this)
         val mSocket = SocketHandler.getSocket()
 
         // Mengecek apakah MAC Address berhasil didapatkan
         if (macAddress != null) {
-            // Membuat objek PostReqServiceModel
-            mSocket.emit("television", macAddress)
+
+            val macAddressObject = JSONObject()
+            macAddressObject.put("mac_address", macAddress)
+
+            // Emit MAC Address sebagai object dengan event "television"
+            Log.d("Socket", "Emitting MAC Address: $macAddressObject")
+            mSocket.emit("television", macAddressObject)
+
+//            Log.d("Socket", "Emitting MAC Address: $macAddress")
+//            mSocket.emit("television", "mac_address: $macAddress")
+//            mSocket.emit("television", macAddress) { ackResponse ->
+//                Log.d("Socket Ack", "Acknowledgment from server: $ackResponse")
+//            }
             val postReqServiceModel = PostReqServiceModel(macAddress, ArrayList())
 
             for (cartItem in cartItems) {

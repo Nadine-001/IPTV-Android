@@ -50,6 +50,8 @@ class SplashScreen : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+
     }
     override fun onStart() {
         super.onStart()
