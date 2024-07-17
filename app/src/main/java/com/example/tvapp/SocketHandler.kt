@@ -40,7 +40,7 @@ object SocketHandler {
     private fun setupSocketListeners(context: Context) {
         mSocket.on(Socket.EVENT_CONNECT) {
             Log.i("Socket", "Connected to the server")
-
+//trttrtr
             // Emit the MAC address when connected
             val macAddress = "02:00:00:00:00:00"
             val jsonObject = JSONObject()
