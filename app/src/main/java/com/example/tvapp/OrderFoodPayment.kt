@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tvapp.retrofit.ApiService
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -665,7 +666,16 @@ class OrderFoodPayment : AppCompatActivity() {
 
     private fun postDataToServer(serviceCartModels: List<OrderX>, paymentMethod: String) {
         val macAddress = getMacAddress()
+        SocketHandler.setSocket()
+        SocketHandler.establishConnection(this)
+        val mSocket = SocketHandler.getSocket()
         if (macAddress != null) {
+            val macAddressObject = JSONObject()
+            macAddressObject.put("mac_address", macAddress)
+
+            // Emit MAC Address sebagai object dengan event "television"
+            Log.d("Socket", "Emitting MAC Address: $macAddressObject")
+            mSocket.emit("television", macAddressObject)
             val total1 = findViewById<TextView>(R.id.total1)
             val totalPrice = total1.text.toString().toIntOrNull() ?: 0
 

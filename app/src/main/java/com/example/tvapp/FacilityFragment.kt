@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tvapp.retrofit.ApiService
 import retrofit2.Call
@@ -35,6 +36,7 @@ class FacilityFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+//        facilityList = ArrayList()
     }
 
     override fun onCreateView(
@@ -48,28 +50,129 @@ class FacilityFragment : Fragment() {
         return view
     }
 
+
+
     private fun setupRecyclerView(view: View) {
         recyclerView = view.findViewById(R.id.rvfacility)
-        facilityAdapter = RecyclerViewFacilityAdapter(ArrayList())
+        facilityAdapter = RecyclerViewFacilityAdapter(facilityList)
         val numberOfColumns = 1
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(requireContext(), numberOfColumns, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = facilityAdapter
     }
 
+    private var isFirstFocusSet: Boolean = false
+    private fun handleHoveredCard(cartData: FacilityModelItem) {
+        printLog("Hovered Card Data: $cartData")
+    }
+    private fun logHoveredCardData(position: Int) {
+        if (position >= 0 && position < facilityList.size) {
+            val hoveredCardData = facilityList[position]
+            printLog("Hovered Card Data: $hoveredCardData")
+            handleHoveredCard(hoveredCardData)
+        } else {
+            printLog("Invalid position or serviceList is empty. Unable to retrieve Hovered Card Data for position: $position")
+        }
+
+
+    }
+    private var focusedPosition: Int = 0
     private fun setupKeyListener(view: View) {
+        val recyclerViewFacilityList =  view.findViewById<RecyclerView>(R.id.rvfacility)
+        val layoutManager = recyclerViewFacilityList.layoutManager as? LinearLayoutManager
+
         view.isFocusableInTouchMode = true
         view.requestFocus()
         view.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN) {
                 when (keyCode) {
                     KeyEvent.KEYCODE_DPAD_DOWN -> {
-                        printLog("HAI")
+//                        printLog("HAI")
+
+                        if (!isFirstFocusSet && facilityList.isNotEmpty()) {
+                            printLog("HAI")
+                            val firstVisibleItem = layoutManager?.findViewByPosition(0)
+                            firstVisibleItem?.setBackgroundResource(R.drawable.hoverf)
+                            logHoveredCardData(focusedPosition)
+                            isFirstFocusSet = true
+                            return@setOnKeyListener true
+                        }
                         return@setOnKeyListener true
                     }
-                    KeyEvent.KEYCODE_DPAD_UP -> {
-                        printLog("haii")
-                        return@setOnKeyListener true
+                    KeyEvent.KEYCODE_DPAD_RIGHT -> {
+                        if (isFirstFocusSet) {
+                            focusedPosition++
+                            val itemCount = layoutManager?.itemCount ?: 0
+                            printLog("haii")
+                            if (focusedPosition < itemCount) {
+                                val nextVisibleItem = layoutManager?.findViewByPosition(focusedPosition)
+                                val currentVisibleItem = layoutManager?.findViewByPosition(focusedPosition - 1)
+                                if (nextVisibleItem == null) {
+                                    layoutManager?.scrollToPositionWithOffset(focusedPosition, (recyclerViewFacilityList.width / 2))
+                                    recyclerViewFacilityList.post {
+                                        val updatedVisibleItem = layoutManager?.findViewByPosition(focusedPosition)
+                                        if (updatedVisibleItem != null) {
+                                            logHoveredCardData(focusedPosition)
+                                            updatedVisibleItem.setBackgroundResource(R.drawable.hoverf)
+                                            currentVisibleItem?.setBackgroundResource(R.drawable.hoverbb)
+                                        } else {
+                                            logHoveredCardData(focusedPosition)
+                                            currentVisibleItem?.let {
+                                                it.setBackgroundResource(R.drawable.hoverf)
+                                                val distanceToCenter = (recyclerViewFacilityList.width - it.width) / 2
+                                                recyclerViewFacilityList.smoothScrollBy((distanceToCenter ?: 0) / 10, 0)
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    logHoveredCardData(focusedPosition)
+                                    nextVisibleItem.setBackgroundResource(R.drawable.hoverf)
+                                    currentVisibleItem?.setBackgroundResource(R.drawable.hoverbb)
+                                    val distanceToCenter = (recyclerViewFacilityList.width - nextVisibleItem.width) / 2
+                                    recyclerViewFacilityList.smoothScrollBy(distanceToCenter / 10, 0)
+                                }
+                            } else {
+                                val lastItemPosition = focusedPosition - 1
+                                val smoothScroller = object : LinearSmoothScroller(recyclerViewFacilityList.context) {
+                                    override fun getVerticalSnapPreference(): Int {
+                                        return SNAP_TO_START
+                                    }
+                                }
+                                smoothScroller.targetPosition = lastItemPosition
+                                layoutManager?.startSmoothScroll(smoothScroller)
+                            }
+                            return@setOnKeyListener true
+                        }
+
+//                        return@setOnKeyListener true
+                    }
+                    KeyEvent.KEYCODE_DPAD_LEFT -> {
+                        if (isFirstFocusSet) {
+                            if (focusedPosition >= 0) {
+                                focusedPosition--
+                                val previousVisibleItem = layoutManager?.findViewByPosition(focusedPosition)
+                                val currentVisibleItem = layoutManager?.findViewByPosition(focusedPosition + 1)
+
+                                if (previousVisibleItem == null) {
+                                    layoutManager?.scrollToPositionWithOffset(focusedPosition, (recyclerViewFacilityList.width / 2))
+                                    recyclerViewFacilityList.post {
+                                        val updatedVisibleItem = layoutManager?.findViewByPosition(focusedPosition)
+                                        if (updatedVisibleItem != null) {
+                                            logHoveredCardData(focusedPosition)
+                                            updatedVisibleItem.setBackgroundResource(R.drawable.hoverf)
+                                            currentVisibleItem?.setBackgroundResource(R.drawable.hoverbb)
+                                        }
+                                    }
+                                } else {
+                                    logHoveredCardData(focusedPosition)
+                                    previousVisibleItem.setBackgroundResource(R.drawable.hoverf)
+                                    currentVisibleItem?.setBackgroundResource(R.drawable.hoverbb)
+                                    val distanceToCenter = (recyclerViewFacilityList.width - previousVisibleItem.width) / 2
+                                    recyclerViewFacilityList.smoothScrollBy(-distanceToCenter / 10, 0)
+                                }
+                            }
+                            return@setOnKeyListener true
+                        }
                     }
                 }
             }

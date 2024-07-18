@@ -15,7 +15,10 @@ object SocketHandler {
     @Synchronized
     fun setSocket() {
         try {
-            mSocket = IO.socket("http://10.218.15.221:8000")
+//            mSocket = IO.socket("http://10.218.15.221:8000")
+
+            mSocket = IO.socket("https://iptv-hms.socket.dev.mas-ts.com")
+
         } catch (e: URISyntaxException) {
             Log.e("SocketHandler", "URISyntaxException: ${e.message}")
         }
